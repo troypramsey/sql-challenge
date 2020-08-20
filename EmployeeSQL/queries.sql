@@ -11,4 +11,11 @@ SELECT department, departments.dept_name, employee_number, employees.last_name, 
 JOIN departments ON dept_manager.department = departments.dept_no
 JOIN employees ON dept_manager.employee_number = employees.emp_no;
 
--- Question 4: 
+-- Question 4: List the department of each employee with the following information: employee number, last name, first name, and department name. --
+SELECT emp_no, last_name, first_name, departments.dept_name FROM employees
+JOIN dept_emp ON employees.emp_no = dept_emp.employee
+JOIN departments ON dept_emp.department = departments.dept_no;
+
+-- Question 5: List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B." --
+SELECT first_name, last_name, sex FROM employees
+WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
